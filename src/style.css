@@ -1,0 +1,35 @@
+.addLunch {
+    padding: 20px;
+    background-color: #d633ff;
+    color: white;
+    font-weight: bold;
+    width: 50%;
+}
+
+.container {
+    background-color: #e6ccff;
+    text-align: center;
+    font-family: Verdana, Tahoma, sans-serif;
+    margin: 0 auto;
+}
+
+.title {
+    padding: 30px;
+}
+
+/* #lunchList {
+    background-color: #eb99ff;
+    width: 50%;
+} */
+
+.lunchPlacceTitle {
+    padding: 30px;
+}
+
+.lunchPlaceAddress {
+
+}
+
+.lunchPlaceMenu {
+
+}
