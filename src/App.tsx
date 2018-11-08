@@ -1,11 +1,13 @@
 import * as React from 'react';
-import LunchList from './lunchList';
+import LunchList from './LunchList';
+import Header from './Header';
 
 class App extends React.Component {
   public render() {
     return (
       <div>
-          <LunchList />
+        <Header />
+        <LunchList />
       </div>
     );
   }
