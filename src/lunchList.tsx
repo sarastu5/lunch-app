@@ -21,22 +21,49 @@ export default class LunchList extends Component<Props, State> {
 
     private lunchList = [
         {
-            address: "Forum",
-            menu: ["Pelle"],
             name: "Bangkok9",
+            menu: "https://www.bangkok9restaurant.com/lounaslista",
         },
 
         {
-            address: "Forum",
-            menu: ["Kanabiittejä"],
             name: "Tamarin",
+            menu: "http://tamarin.fi/ravintolat/forum/",
         },
 
         {
-            address: "Lähellä",
-            menu: ["Burgeria"],
             name: "Kiila",
-        }
+            menu: "https://www.ravintolakiila.fi/lounas",
+        },
+
+        {
+            name: "Social Burger",
+            menu: "https://www.ravintolakiila.fi/lounas",
+        },
+
+        {
+            name: "Fafa's",
+            menu: "https://fafas.fi/fi/menu/",
+        },
+
+        {
+            name: "Marmomoripiha",
+            menu: "https://www.dylan.fi/marmoripiha/",
+        },
+
+        {
+            name: "Kebab",
+            menu: "",
+        },
+        
+        {
+            name: "Levant",
+            menu: "https://www.levant.fi/ravintolat/",
+        },
+
+        {
+            name: "Önam",
+            menu: "https://www.onam.fi/",
+        },
     ];
 
     private choosePlace() {
@@ -46,12 +73,12 @@ export default class LunchList extends Component<Props, State> {
         }))
     }
 
-    public render() {
+    render() {
 
         return (
             <div className="container">
                 <button type="button" className="addLunch" onClick={this.choosePlace}>Arvo paikka!</button>
-                <LunchPlace name={this.state.lunchToday.name} menu={this.state.lunchToday.menu} address={this.state.lunchToday.address} />
+                <LunchPlace name={this.state.lunchToday.name} menu={this.state.lunchToday.menu} />
             </div>
         )
     }
