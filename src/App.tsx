@@ -3,10 +3,11 @@ import LunchList from './LunchList';
 import Header from './Header';
 
 class App extends React.Component {
-  public render() {
+  render() {
+    const title = "Lounasta jee jee"
     return (
       <div>
-        <Header />
+        <Header title={title}/>
         <LunchList />
       </div>
     );
