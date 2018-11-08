@@ -1,25 +1,28 @@
 import * as React from 'react';
 import { Component } from 'react';
-import LunchPlace from './lunchPlace';
+import LunchPlace from './LunchPlace';
 import './style.css';
 
 interface Props {
 }
 
-export default class LunchList extends Component<Props> {
+interface State {
+    lunchToday: any;
+}
+
+export default class LunchList extends Component<Props, State> {
 
     constructor(props: Props) {
         super(props);
 
         this.choosePlace = this.choosePlace.bind(this);
-
         this.state = { lunchToday: this.lunchList[Math.floor(Math.random() * this.lunchList.length)] };
     }
 
     private lunchList = [
         {
             address: "Forum",
-            menu: ["CHOO CHEE CURRY", "PHAD THAI GAI", "GANG KIEW WAN NEUA", "PLASALMON TOD KOP PADTAKRAI", "KHAO RAT GAENG"],
+            menu: ["Pelle"],
             name: "Bangkok9",
         },
 
@@ -38,7 +41,9 @@ export default class LunchList extends Component<Props> {
 
     private choosePlace() {
         var randomLunchPlace = this.lunchList[Math.floor(Math.random() * this.lunchList.length)];
-        console.log(randomLunchPlace);
+        this.setState(() => ({
+            lunchToday: randomLunchPlace
+        }))
     }
 
     public render() {
@@ -46,9 +51,7 @@ export default class LunchList extends Component<Props> {
         return (
             <div className="container">
                 <button type="button" className="addLunch" onClick={this.choosePlace}>Arvo paikka!</button>
-                {this.lunchList.map((lunchPlace) =>
-                    <LunchPlace name={lunchPlace.name} address={lunchPlace.address} menu={lunchPlace.menu} key={lunchPlace.name} />
-                )}
+                <LunchPlace name={this.state.lunchToday.name} menu={this.state.lunchToday.menu} address={this.state.lunchToday.address} />
             </div>
         )
     }
