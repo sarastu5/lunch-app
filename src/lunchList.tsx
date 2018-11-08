@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Component} from 'react';
+import { Component } from 'react';
 import LunchPlace from './lunchPlace';
 import './style.css';
 
@@ -12,6 +12,8 @@ export default class LunchList extends Component<Props> {
         super(props);
 
         this.choosePlace = this.choosePlace.bind(this);
+
+        this.state = { lunchToday: this.lunchList[Math.floor(Math.random() * this.lunchList.length)] };
     }
 
     private lunchList = [
@@ -33,9 +35,9 @@ export default class LunchList extends Component<Props> {
             name: "Kiila",
         }
     ];
-    
+
     private choosePlace() {
-        var randomLunchPlace = this.lunchList[Math.floor(Math.random()*this.lunchList.length)];
+        var randomLunchPlace = this.lunchList[Math.floor(Math.random() * this.lunchList.length)];
         console.log(randomLunchPlace);
     }
 
@@ -43,7 +45,6 @@ export default class LunchList extends Component<Props> {
 
         return (
             <div className="container">
-                <h1 className="title">Missä syödään?</h1>
                 <button type="button" className="addLunch" onClick={this.choosePlace}>Arvo paikka!</button>
                 {this.lunchList.map((lunchPlace) =>
                     <LunchPlace name={lunchPlace.name} address={lunchPlace.address} menu={lunchPlace.menu} key={lunchPlace.name} />
