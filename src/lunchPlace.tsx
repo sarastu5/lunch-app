@@ -7,13 +7,17 @@ interface Props {
     name: string;
 }
 
+// iframelle parametriksi lounaslista-url
+
 export default class LunchPlace extends Component<Props> {
     render() {
         const { menu, name, } = this.props;
         return (
             <div id="lunchList">
                 <h3 className="lunchPlaceTitle">{name}</h3>
-                <p className="lunchPlaceMenu">{menu}</p>
+                <iframe src={menu}>
+                    Menu
+                </iframe>
             </div>
         )
     }
