@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Component } from 'react';
 import LunchPlace from './LunchPlace';
 import './style.css';
+import RandomLunchPlaceButton from './RandomLunchPlaceButton';
 
 interface Props {
 }
@@ -16,7 +17,7 @@ export default class LunchList extends Component<Props, State> {
         super(props);
 
         this.choosePlace = this.choosePlace.bind(this);
-        this.state = { lunchToday: this.lunchList[Math.floor(Math.random() * this.lunchList.length)] };
+        this.state = {lunchToday: null};
     }
 
     private lunchList = [
@@ -54,7 +55,7 @@ export default class LunchList extends Component<Props, State> {
             name: "Kebab",
             menu: "",
         },
-        
+
         {
             name: "Levant",
             menu: "https://www.levant.fi/ravintolat/",
@@ -67,18 +68,20 @@ export default class LunchList extends Component<Props, State> {
     ];
 
     private choosePlace() {
+        console.log("choosePlace");
         var randomLunchPlace = this.lunchList[Math.floor(Math.random() * this.lunchList.length)];
-        this.setState(() => ({
-            lunchToday: randomLunchPlace
-        }))
+        this.setState({lunchToday: randomLunchPlace})
     }
 
     render() {
-
+        const dontShowPlaces: boolean =  this.state.lunchToday !== null;
+        
         return (
             <div className="container">
-                <button type="button" className="addLunch" onClick={this.choosePlace}>Arvo paikka!</button>
+                <RandomLunchPlaceButton onClick={this.choosePlace}/>
+            {dontShowPlaces &&
                 <LunchPlace name={this.state.lunchToday.name} menu={this.state.lunchToday.menu} />
+            }
             </div>
         )
     }
