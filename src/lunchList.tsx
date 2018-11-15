@@ -1,88 +1,46 @@
-import * as React from 'react';
-import { Component } from 'react';
-import LunchPlace from './LunchPlace';
-import './style.css';
-import RandomLunchPlaceButton from './RandomLunchPlaceButton';
+// import * as React from 'react';
+// import { Component } from 'react';
+// import LunchPlace from './LunchPlace';
+// import './style.css';
+// import RandomLunchPlaceButton from './RandomLunchPlaceButton';
 
-interface Props {
-}
+// interface Props {
+//     lunchList: [],
+//     choosePlace: Function
+// }
 
-interface State {
-    lunchToday: any;
-}
+// interface State {
+//     lunchToday: any;
+// }
 
-export default class LunchList extends Component<Props, State> {
+// export default class LunchList extends Component<Props, State> {
 
-    constructor(props: Props) {
-        super(props);
+//     constructor(props: Props) {
+//         super(props);
 
-        this.choosePlace = this.choosePlace.bind(this);
-        this.state = {lunchToday: null};
-    }
+//         const {lunchList} = this.props;
+//         const choosePlace = this.props;
+//     }
 
-    private lunchList = [
-        {
-            name: "Bangkok9",
-            menu: "https://www.bangkok9restaurant.com/lounaslista",
-        },
+//     private renderPlace() {
+//         if (this.state.lunchToday !== null) {
+//             return (
+//                 <div>
+//                     <LunchPlace name={this.state.lunchToday.name} menu={this.state.lunchToday.menu} />
+//                 </div>
+//             )
+//         }
+//         return <div></div>
+//     }
 
-        {
-            name: "Tamarin",
-            menu: "http://tamarin.fi/ravintolat/forum/",
-        },
+//     render() {
+//         // const dontShowPlaces: boolean = this.state.lunchToday !== null;
 
-        {
-            name: "Kiila",
-            menu: "https://www.ravintolakiila.fi/lounas",
-        },
-
-        {
-            name: "Social Burger",
-            menu: "https://www.ravintolakiila.fi/lounas",
-        },
-
-        {
-            name: "Fafa's",
-            menu: "https://fafas.fi/fi/menu/",
-        },
-
-        {
-            name: "Marmomoripiha",
-            menu: "https://www.dylan.fi/marmoripiha/",
-        },
-
-        {
-            name: "Kebab",
-            menu: "",
-        },
-
-        {
-            name: "Levant",
-            menu: "https://www.levant.fi/ravintolat/",
-        },
-
-        {
-            name: "Önam",
-            menu: "https://www.onam.fi/",
-        },
-    ];
-
-    private choosePlace() {
-        console.log("choosePlace");
-        var randomLunchPlace = this.lunchList[Math.floor(Math.random() * this.lunchList.length)];
-        this.setState({lunchToday: randomLunchPlace})
-    }
-
-    render() {
-        const dontShowPlaces: boolean =  this.state.lunchToday !== null;
-        
-        return (
-            <div className="container">
-                <RandomLunchPlaceButton onClick={this.choosePlace}/>
-            {dontShowPlaces &&
-                <LunchPlace name={this.state.lunchToday.name} menu={this.state.lunchToday.menu} />
-            }
-            </div>
-        )
-    }
-}
+//         return (
+//             <div>
+//                 <RandomLunchPlaceButton onClick={this.props.choosePlace} />
+//                 {this.renderPlace()}
+//             </div>
+//         )
+//     }
+// }
