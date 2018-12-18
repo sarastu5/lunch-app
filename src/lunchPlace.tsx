@@ -13,8 +13,8 @@ export default class LunchPlace extends Component<Props> {
         return (
             <div className="lunchList">
                 <h3 className="h3">{name}</h3>
-                <div className="iframe-container">
-                    <iframe src={menu} className="iframe" height="800px" width="700px"></iframe>
+                <div className="resp-container">
+                    <iframe src={menu} className="iframe"></iframe>
                 </div>
             </div>
         )
