@@ -22,10 +22,15 @@ class App extends React.Component<Props, State> {
     this.state = { lunchToday: null };
   }
 
+  public componentDidMount() {
+    console.log("did mount");
+    fetch("http://lunchplace-api.herokuapp.com/restaurants/")
+  }
+
   private lunchList = [
     {
       name: "Bangkok9",
-      menu: "https://www.bangkok9restaurant.com/lounaslista",
+      menu: "https://www.bangkok9restaurant.com/lounaslista"
     },
 
     {
@@ -67,6 +72,36 @@ class App extends React.Component<Props, State> {
       name: "Önam",
       menu: "https://www.onam.fi/",
     },
+
+    {
+      name: "Bjang",
+      menu: "http://www.biang.fi/"
+    },
+
+    {
+      name: "Döner Harju",
+      menu: "http://donerharju.fi/city/"
+    },
+
+    {
+      name: "Subway",
+      menu: "http://www.subway.fi/fi/tuotteet"
+    },
+
+    {
+      name: "Pupu",
+      menu: "https://pupu.fi/menu/"
+    },
+
+    {
+      name: "Classic Pizza",
+      menu: "https://classicpizza.fi/menu/"
+    },
+
+    {
+      name: "Pikku Nepal",
+      menu: "http://pikkunepal.fi/lunch/"
+    }
   ];
 
   private choosePlace() {
@@ -87,7 +122,7 @@ class App extends React.Component<Props, State> {
   }
 
   render() {
-    const title = "Lounasta jee jee";
+    const title = "Lounasarvonta";
 
     return (
       <div className="container">
